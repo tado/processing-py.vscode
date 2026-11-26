@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- The wizard no longer asks for a template: every project is generated from a single
+  `sketch.py` (`setup()` with `size(600, 400)`, `draw()` with `background(0.8)`).
+  The wizard is now project name → parent folder.
+- Removed the Basic / Interactive / Static templates.
+
 ## 0.1.0
 
 - Initial version: project wizard (Basic / Interactive / Static templates), Explorer "Create Here",

@@ -10,11 +10,11 @@ The project wizard is modeled on the p5.js 2.x Project Generator.
 
 - **processing-py: Create a new processing-py Project** (Command Palette)
   1. Project name
-  2. Template: *Basic* (setup/draw), *Interactive* (mouse/key callbacks), *Static* (`no_loop()`)
-  3. Parent folder
-  4. Optionally runs `uv sync` to install Python and processing-py into `.venv`
-  5. Opens the project in this window or a new one and shows `sketch.py`
-- **Create processing-py Project Here**: right-click a folder in the Explorer.
+  2. Parent folder
+  3. Optionally runs `uv sync` to install Python and processing-py into `.venv`
+  4. Opens the project in this window or a new one and shows `sketch.py`
+- **Create processing-py Project Here**: right-click a folder in the Explorer
+  (asks only for the project name).
 - **processing-py: Run Sketch** (▶ in the editor title bar, `Cmd+R` / `Ctrl+R`):
   runs `uv run <file>` in a dedicated terminal. Running again restarts the sketch.
 - **processing-py: Stop Sketch**: closes the sketch terminal and its window.
@@ -38,6 +38,22 @@ declares them all, the overlay is removed. A `typings/processing_py/` folder tha
 did not create is left untouched. Disable with `processingPy.generateTypeStubs`.
 
 ## Generated project
+
+Every project starts from the same `sketch.py`:
+
+```python
+from processing_py import *
+
+hue_shift = 0
+
+def setup():
+    size(600, 400)
+
+def draw():
+    background(0.8)
+
+run()
+```
 
 ```
 my-sketch/

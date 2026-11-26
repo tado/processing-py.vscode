@@ -2,7 +2,7 @@
   "name": "processing-py-project-generator",
   "displayName": "processing-py Project Generator",
   "description": "Create and run processing-py (libprocessing for Python) sketch projects, managed with uv.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "your-publisher-id",
   "license": "MIT",
   "icon": "images/icon.png",

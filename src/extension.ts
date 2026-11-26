@@ -3,8 +3,6 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 import {
   SKETCH_FILE,
-  TEMPLATES,
-  TemplateId,
   generateProject,
   isProcessingPyProject,
   validateProjectName,
@@ -84,7 +82,8 @@ async function createProject(context: vscode.ExtensionContext, targetParent?: vs
   }
 
   const projectName = await vscode.window.showInputBox({
-    title: 'New processing-py Project (1/3)',
+    // "Create Here" already knows the parent folder, so it has a single step.
+    title: targetParent ? 'New processing-py Project' : 'New processing-py Project (1/2)',
     prompt: 'Enter project name',
     placeHolder: 'my-sketch',
     value: 'my-sketch',
@@ -94,19 +93,10 @@ async function createProject(context: vscode.ExtensionContext, targetParent?: vs
     return;
   }
 
-  const picked = await vscode.window.showQuickPick(
-    TEMPLATES.map((t) => ({ label: t.label, description: t.description, id: t.id })),
-    { title: 'New processing-py Project (2/3)', placeHolder: 'Select a sketch template' },
-  );
-  if (!picked) {
-    return;
-  }
-  const template: TemplateId = picked.id;
-
   let parentUri = targetParent;
   if (!parentUri) {
     const folders = await vscode.window.showOpenDialog({
-      title: 'New processing-py Project (3/3)',
+      title: 'New processing-py Project (2/2)',
       canSelectFiles: false,
       canSelectFolders: true,
       canSelectMany: false,
@@ -149,7 +139,6 @@ async function createProject(context: vscode.ExtensionContext, targetParent?: vs
         generateProject(vscode.Uri.joinPath(context.extensionUri, 'templates').fsPath, {
           projectName: name,
           parentDir,
-          template,
           pythonVersion: cfg.pythonVersion,
           packageVersion: cfg.packageVersion,
           platform: process.platform,
@@ -159,7 +148,7 @@ async function createProject(context: vscode.ExtensionContext, targetParent?: vs
     void vscode.window.showErrorMessage(`Failed to create project: ${errorMessage(err)}`);
     return;
   }
-  output.appendLine(`Created ${projectDir} (template: ${template})`);
+  output.appendLine(`Created ${projectDir}`);
 
   const synced = await maybeSync(projectDir, cfg);
   await offerOpen(context, projectDir, synced);

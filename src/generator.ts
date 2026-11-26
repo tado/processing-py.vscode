@@ -5,20 +5,6 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
-export type TemplateId = 'basic' | 'interactive' | 'static';
-
-export interface TemplateInfo {
-  id: TemplateId;
-  label: string;
-  description: string;
-}
-
-export const TEMPLATES: readonly TemplateInfo[] = [
-  { id: 'basic', label: 'Basic', description: 'setup() / draw() — a circle that follows the mouse' },
-  { id: 'interactive', label: 'Interactive', description: 'mouse_pressed() / key_pressed() callbacks and text' },
-  { id: 'static', label: 'Static', description: 'draw once with no_loop()' },
-];
-
 export const SKETCH_FILE = 'sketch.py';
 export const PACKAGE_NAME = 'processing-py';
 
@@ -27,7 +13,6 @@ export interface ProjectOptions {
   projectName: string;
   /** Folder in which `<projectName>/` is created. */
   parentDir: string;
-  template: TemplateId;
   /** Written to .python-version, e.g. "3.12". */
   pythonVersion: string;
   /** Version constraint for processing-py, e.g. "", "0.4.0", ">=0.4,<0.5". */
@@ -185,10 +170,8 @@ export async function generateProject(templatesRoot: string, opts: ProjectOption
   // Fails with EEXIST instead of silently merging into an existing folder.
   await fs.mkdir(projectDir);
 
+  // Includes sketch.py.
   await copyTemplateDir(path.join(templatesRoot, 'project'), projectDir, vars);
-
-  const sketchTemplate = await fs.readFile(path.join(templatesRoot, 'sketches', `${opts.template}.py`), 'utf8');
-  await fs.writeFile(path.join(projectDir, SKETCH_FILE), renderTemplate(sketchTemplate, vars), 'utf8');
 
   const vscodeDir = path.join(projectDir, '.vscode');
   await fs.mkdir(vscodeDir, { recursive: true });

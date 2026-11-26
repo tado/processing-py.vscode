@@ -98,5 +98,4 @@ npm install
 npm test          # compile + unit tests (node:test)
 ```
 
-Press `F5` in VS Code to launch an Extension Development Host. Package with `npx @vscode/vsce package`
-(set `publisher` in `package.json` first).
+Press `F5` in VS Code to launch an Extension Development Host. Package with `npx @vscode/vsce package`.

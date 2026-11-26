@@ -3,7 +3,7 @@
   "displayName": "processing-py Project Generator",
   "description": "Create and run processing-py (libprocessing for Python) sketch projects, managed with uv.",
   "version": "0.2.0",
-  "publisher": "your-publisher-id",
+  "publisher": "tadokoro",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {

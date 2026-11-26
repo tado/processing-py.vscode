@@ -6,6 +6,20 @@ A VS Code extension that creates and runs [processing-py](https://libprocessing.
 The workflow follows the official getting-started guide (`uv add processing-py` → `uv run sketch.py`).
 The project wizard is modeled on the p5.js 2.x Project Generator.
 
+## Installation
+
+Install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=tadokoro.processing-py-project-generator):
+
+- In VS Code, open the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`), search for
+  **processing-py Project Generator**, and click **Install**, or
+- run `code --install-extension tadokoro.processing-py-project-generator`.
+
+A `.vsix` file is also attached to each [GitHub release](https://github.com/tado/processing-py.vscode/releases);
+install it with **Extensions: Install from VSIX...** in the Command Palette.
+
+Then install [uv](https://docs.astral.sh/uv/getting-started/installation/) (see [Requirements](#requirements))
+and run **processing-py: Create a new processing-py Project** from the Command Palette.
+
 ## Features
 
 - **processing-py: Create a new processing-py Project** (Command Palette)

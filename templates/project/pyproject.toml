@@ -1,0 +1,9 @@
+[project]
+name = "{{PACKAGE_NAME}}"
+version = "0.1.0"
+description = "A processing-py sketch"
+readme = "README.md"
+requires-python = ">={{REQUIRES_PYTHON}}"
+dependencies = [
+    "{{DEPENDENCY}}",
+]

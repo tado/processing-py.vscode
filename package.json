@@ -1,0 +1,153 @@
+{
+  "name": "processing-py-project-generator",
+  "displayName": "processing-py Project Generator",
+  "description": "Create and run processing-py (libprocessing for Python) sketch projects, managed with uv.",
+  "version": "0.1.0",
+  "publisher": "your-publisher-id",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tado/processing-py.vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tado/processing-py.vscode/issues"
+  },
+  "homepage": "https://github.com/tado/processing-py.vscode#readme",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "processing",
+    "processing-py",
+    "libprocessing",
+    "creative coding",
+    "python",
+    "uv"
+  ],
+  "activationEvents": [
+    "workspaceContains:pyproject.toml"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "processingPy.createProject",
+        "title": "Create a new processing-py Project",
+        "category": "processing-py"
+      },
+      {
+        "command": "processingPy.createProjectHere",
+        "title": "Create processing-py Project Here",
+        "category": "processing-py"
+      },
+      {
+        "command": "processingPy.runSketch",
+        "title": "Run Sketch",
+        "category": "processing-py",
+        "icon": "$(play)"
+      },
+      {
+        "command": "processingPy.stopSketch",
+        "title": "Stop Sketch",
+        "category": "processing-py",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "processingPy.updateTypeStubs",
+        "title": "Update Type Stubs",
+        "category": "processing-py"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "processingPy.createProjectHere",
+          "when": "false"
+        },
+        {
+          "command": "processingPy.runSketch",
+          "when": "editorLangId == python"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "processingPy.createProjectHere",
+          "when": "explorerResourceIsFolder",
+          "group": "2_workspace"
+        }
+      ],
+      "editor/title/run": [
+        {
+          "command": "processingPy.runSketch",
+          "when": "resourceLangId == python && processingPy.inProject",
+          "group": "navigation@0"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "processingPy.runSketch",
+        "key": "ctrl+r",
+        "mac": "cmd+r",
+        "when": "editorLangId == python && processingPy.inProject"
+      }
+    ],
+    "configuration": {
+      "title": "processing-py",
+      "properties": {
+        "processingPy.uvPath": {
+          "type": "string",
+          "default": "uv",
+          "description": "Path to the uv executable. Leave as \"uv\" to use the one on your PATH."
+        },
+        "processingPy.pythonVersion": {
+          "type": "string",
+          "default": "3.12",
+          "description": "Python version written to .python-version for new projects (processing-py 0.4 ships wheels for 3.11+ on macOS/Windows)."
+        },
+        "processingPy.packageVersion": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Version constraint for the `processing-py` dependency in new projects, e.g. `>=0.4,<0.5` or `==0.4.0`. Leave empty for the latest release."
+        },
+        "processingPy.syncAfterCreate": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "always",
+            "never"
+          ],
+          "enumDescriptions": [
+            "Ask whether to run `uv sync` after creating a project.",
+            "Always run `uv sync` after creating a project.",
+            "Never run `uv sync` automatically."
+          ],
+          "default": "ask",
+          "description": "Whether to install dependencies (uv sync) right after a project is created."
+        },
+        "processingPy.generateTypeStubs": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Write `typings/processing_py/` so Pylance knows runtime globals such as `mouse_x`, `width` and `frame_count`, which processing-py's own stubs do not declare. Refreshed automatically when `uv.lock` changes."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && node --test out/test/",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.4.0"
+  }
+}

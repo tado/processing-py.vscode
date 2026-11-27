@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0
 
 - `uv sync` now runs automatically after a project is created: the default of
   `processingPy.syncAfterCreate` is `always` (was `ask`). Set it to `never` to run `uv sync`

@@ -23,7 +23,7 @@ function config() {
     uvPath: c.get<string>('uvPath', 'uv'),
     pythonVersion: c.get<string>('pythonVersion', '3.14'),
     packageVersion: c.get<string>('packageVersion', ''),
-    syncAfterCreate: c.get<'ask' | 'always' | 'never'>('syncAfterCreate', 'ask'),
+    syncAfterCreate: c.get<'always' | 'ask' | 'never'>('syncAfterCreate', 'always'),
     generateTypeStubs: c.get<boolean>('generateTypeStubs', true),
   };
 }

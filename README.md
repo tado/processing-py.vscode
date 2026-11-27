@@ -49,7 +49,8 @@ from the Command Palette.
 - **processing-py: Create a new processing-py Project** (Command Palette)
   1. Project name
   2. Parent folder
-  3. Optionally runs `uv sync` to install Python and processing-py into `.venv`
+  3. Runs `uv sync` to install Python and processing-py into `.venv`
+     (automatic by default; see `processingPy.syncAfterCreate`)
   4. Opens the project in this window or a new one and shows `sketch.py`
 - **Create processing-py Project Here**: right-click a folder in the Explorer
   (asks only for the project name).
@@ -112,7 +113,7 @@ did not create is left untouched. Disable with `processingPy.generateTypeStubs`.
 | `processingPy.uvPath` | `uv` | Path to uv. If set to `uv`, `~/.local/bin`, `~/.cargo/bin` and Homebrew locations are also tried. |
 | `processingPy.pythonVersion` | `3.14` | Written to `.python-version`; also sets `requires-python`. |
 | `processingPy.packageVersion` | *(empty = latest)* | `0.4.0` pins exactly; `>=0.4,<0.5` is used as-is. |
-| `processingPy.syncAfterCreate` | `ask` | `ask` / `always` / `never` run `uv sync` after creation. |
+| `processingPy.syncAfterCreate` | `always` | `always` runs `uv sync` after creation, `ask` asks first, `never` leaves it to you (run `uv sync` in the project folder). |
 | `processingPy.generateTypeStubs` | `true` | Generate the `typings/processing_py/` overlay described above. |
 
 ## Known issues

@@ -118,17 +118,17 @@
         "processingPy.syncAfterCreate": {
           "type": "string",
           "enum": [
-            "ask",
             "always",
+            "ask",
             "never"
           ],
           "enumDescriptions": [
+            "Run `uv sync` automatically after creating a project.",
             "Ask whether to run `uv sync` after creating a project.",
-            "Always run `uv sync` after creating a project.",
-            "Never run `uv sync` automatically."
+            "Do not run `uv sync`; run it yourself in the project folder (manual)."
           ],
-          "default": "ask",
-          "description": "Whether to install dependencies (uv sync) right after a project is created."
+          "default": "always",
+          "markdownDescription": "Whether to install Python and processing-py (`uv sync`) right after a project is created. Set to `never` to run `uv sync` yourself."
         },
         "processingPy.generateTypeStubs": {
           "type": "boolean",

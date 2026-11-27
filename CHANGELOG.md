@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.0
 
 - The default `processingPy.pythonVersion` for new projects is now `3.14` (was `3.12`).
   processing-py 0.4.0 ships 3.14 wheels for macOS arm64, Windows x64 and Linux x86_64.

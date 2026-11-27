@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.1
 
 - README: added a Requirements section with the official uv install scripts (macOS / Linux,
   Windows) and a link to the uv installation page, plus Marketplace / VSIX installation steps.

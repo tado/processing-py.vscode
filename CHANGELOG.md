@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- README: added a Requirements section with the official uv install scripts (macOS / Linux,
+  Windows) and a link to the uv installation page, plus Marketplace / VSIX installation steps.
+  Sections now follow the same layout as uv Simple Project Generator.
+- Set the extension publisher to `tadokoro`.
+
 ## 0.2.0
 
 - The wizard no longer asks for a template: every project is generated from a single

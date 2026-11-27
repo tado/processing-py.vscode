@@ -107,8 +107,8 @@
         },
         "processingPy.pythonVersion": {
           "type": "string",
-          "default": "3.12",
-          "description": "Python version written to .python-version for new projects (processing-py 0.4 ships wheels for 3.11+ on macOS/Windows)."
+          "default": "3.14",
+          "description": "Python version written to .python-version for new projects (processing-py 0.4 ships wheels for CPython 3.11–3.15 on macOS arm64, Windows x64 and Linux x86_64)."
         },
         "processingPy.packageVersion": {
           "type": "string",

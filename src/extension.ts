@@ -21,7 +21,7 @@ function config() {
   const c = vscode.workspace.getConfiguration('processingPy');
   return {
     uvPath: c.get<string>('uvPath', 'uv'),
-    pythonVersion: c.get<string>('pythonVersion', '3.12'),
+    pythonVersion: c.get<string>('pythonVersion', '3.14'),
     packageVersion: c.get<string>('packageVersion', ''),
     syncAfterCreate: c.get<'ask' | 'always' | 'never'>('syncAfterCreate', 'ask'),
     generateTypeStubs: c.get<boolean>('generateTypeStubs', true),

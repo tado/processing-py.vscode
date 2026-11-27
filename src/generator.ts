@@ -160,7 +160,7 @@ export async function generateProject(templatesRoot: string, opts: ProjectOption
   const vars: Record<string, string> = {
     PROJECT_NAME: projectName,
     PACKAGE_NAME: toPackageName(projectName),
-    PYTHON_VERSION: opts.pythonVersion.trim() || '3.12',
+    PYTHON_VERSION: opts.pythonVersion.trim() || '3.14',
     REQUIRES_PYTHON: requiresPython(opts.pythonVersion),
     DEPENDENCY: dependencySpec(opts.packageVersion),
     SKETCH_FILE,

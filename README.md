@@ -79,7 +79,7 @@ my-sketch/
 ├── sketch.py             # from processing_py import * … run()
 ├── assets/               # load_image("x.png") resolves to assets/x.png
 ├── pyproject.toml        # dependencies = ["processing-py"]
-├── .python-version       # 3.12 (configurable)
+├── .python-version       # 3.14 (configurable)
 ├── README.md
 ├── .gitignore
 └── .vscode/
@@ -110,7 +110,7 @@ did not create is left untouched. Disable with `processingPy.generateTypeStubs`.
 | Setting | Default | Description |
 | --- | --- | --- |
 | `processingPy.uvPath` | `uv` | Path to uv. If set to `uv`, `~/.local/bin`, `~/.cargo/bin` and Homebrew locations are also tried. |
-| `processingPy.pythonVersion` | `3.12` | Written to `.python-version`; also sets `requires-python`. |
+| `processingPy.pythonVersion` | `3.14` | Written to `.python-version`; also sets `requires-python`. |
 | `processingPy.packageVersion` | *(empty = latest)* | `0.4.0` pins exactly; `>=0.4,<0.5` is used as-is. |
 | `processingPy.syncAfterCreate` | `ask` | `ask` / `always` / `never` run `uv sync` after creation. |
 | `processingPy.generateTypeStubs` | `true` | Generate the `typings/processing_py/` overlay described above. |
